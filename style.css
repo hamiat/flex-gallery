@@ -1,0 +1,102 @@
+
+html {
+    box-sizing: border-box;
+    background: rgb(217, 255, 0);;
+    font-family: monospace;
+    font-size: 1.5em;
+    font-weight: 300;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+
+  header {
+    text-align: center;
+  }
+  .hideHeader {
+    display: none;
+  }
+  .panels {
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+  }
+
+  .panel {
+    background: #ffd699;
+    box-shadow: inset 0 0 0 5px rgba(255,255,255,0.1);
+    color: black;
+    text-align: center;
+    align-items: center;
+    /* Safari transitionend event.propertyName === flex */
+    /* Chrome + FF transitionend event.propertyName === flex-grow */
+    transition:
+      font-size 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+      flex 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+      background 0.2s;
+    font-size: 1.2em;
+    background-size: cover;
+    background-position: center;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+
+  }
+
+.panel1 { background-image:url(/assets/beggs.jpg); }
+.panel2 { background-image:url(/assets/cakes.jpg); }
+.panel3 { background-image:url(/assets/carrots.jpg); }
+.panel4 { background-image:url(/assets/coconuts.jpg); }
+.panel5 { background-image:url(/assets/dounts.jpg); }
+
+
+
+   /* Flex Children */
+   .panel > * {
+    margin: 0;
+    width: 100%;
+    transition: transform 0.5s;
+    flex: 1 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .panel > *:first-child {
+    transform: translateY(-100%);
+  }
+  .panel.open-active > *:first-child {
+    transform: translateY(0%);
+  }
+  .panel > *:last-child {
+    transform: translateY(100%);
+  }
+  .panel.panel.open-active > *:last-child {
+    transform: translateY(0%);
+  }
+
+  
+  .panel p {
+    text-transform: uppercase;
+  color: rgb(217, 255, 0);
+    text-shadow: 2px 2px 0px rgba(245, 170, 108, 0.72), 0 0 14px rgba(221, 162, 162, 0.45);
+    font-size: 2em;
+    cursor: pointer;
+  }
+  
+  .panel p:nth-child(2) {
+    font-size: 4em;
+  }
+
+  .panel.open {
+    flex: 5;
+    font-size: 40px;
+  }
